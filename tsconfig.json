@@ -10,6 +10,17 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
+    "paths": {
+      "dynamic-components-demo": ["./dist/dynamic-components-demo"],
+      "ng-if-reference": ["./dist/ng-if-reference"],
+      "ng-switch-demo": ["./dist/ng-switch-demo"],
+      "ng-template-demo": [
+        "./dist/ng-template-demo"
+      ],
+      "shared": [
+        "./dist/shared"
+      ]
+    },
     "esModuleInterop": true,
     "sourceMap": true,
     "declaration": false,
@@ -19,10 +30,7 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
-    "lib": [
-      "ES2022",
-      "dom"
-    ]
+    "lib": ["ES2022", "dom"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
