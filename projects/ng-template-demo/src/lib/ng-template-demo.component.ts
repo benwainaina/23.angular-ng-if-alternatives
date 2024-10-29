@@ -4,13 +4,7 @@ import { Component } from '@angular/core';
   selector: 'lib-ng-template-demo',
   standalone: true,
   imports: [],
-  template: `
-    <p>
-      ng-template-demo works!
-    </p>
-  `,
-  styles: ``
+  templateUrl: 'ng-template-demo.component.html',
+  styleUrl: 'ng-template-demo.component.scss',
 })
-export class NgTemplateDemoComponent {
-
-}
+export class NgTemplateDemoComponent {}

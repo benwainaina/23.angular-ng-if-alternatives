@@ -32,6 +32,6 @@ export const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'ng-if-reference',
+    redirectTo: 'ng-template-demo',
   },
 ];

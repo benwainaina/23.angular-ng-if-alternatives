@@ -12,7 +12,7 @@ import {
 @Component({
   selector: 'lib-ng-switch-demo',
   standalone: true,
-  imports: [NgFor, NgSwitch, NgSwitchCase, NgTemplateOutlet, AsyncPipe],
+  imports: [NgFor, NgSwitch, NgSwitchCase, AsyncPipe],
   templateUrl: 'ng-switch-demo.component.html',
   styleUrl: 'ng-switch-demo.component.scss',
 })
