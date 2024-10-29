@@ -1,0 +1,18 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+
+  &__title {
+  }
+
+  &__content {
+    border: 1px solid rgb(0, 119, 128);
+    padding: 12px;
+    border-radius: 4px;
+
+    &__instruction {
+      margin-bottom: 0;
+    }
+  }
+}

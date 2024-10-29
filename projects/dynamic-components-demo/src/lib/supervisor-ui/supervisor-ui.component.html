@@ -1,0 +1,13 @@
+<div class="wrapper">
+  <div class="wrapper__title poppins-bold">Supervisor Account</div>
+  <div class="wrapper__content">
+    <h4 class="wrapper__content__instruction poppins-bold">
+      As a supervisor, you can use the portal to:
+    </h4>
+    <ol class="poppins-regular">
+      <li *ngFor="let role of roles">
+        {{ role }}
+      </li>
+    </ol>
+  </div>
+</div>

@@ -32,6 +32,6 @@ export const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'ng-template-demo',
+    redirectTo: 'dynamic-components-demo',
   },
 ];
