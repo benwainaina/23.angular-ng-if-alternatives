@@ -1,0 +1,37 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+  &__user-type-label {
+  }
+
+  &__user-type-actions {
+    &__admin,
+    &__supervisor,
+    &__employee {
+      display: flex;
+      flex-direction: column;
+      padding: 12px;
+      border-radius: 4px;
+
+      &__title {
+        margin-bottom: 0;
+      }
+    }
+
+    &__admin {
+      border: 1px solid rgb(0, 119, 128);
+    }
+
+    &__supervisor {
+      border: 1px solid rgb(255, 174, 0);
+    }
+
+    &__employee {
+      border: 1px solid rgb(179, 194, 51);
+    }
+
+    .action {
+    }
+  }
+}
