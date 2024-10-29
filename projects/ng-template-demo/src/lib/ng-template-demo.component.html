@@ -1,1 +1,82 @@
-here!
+<div class="wrapper">
+  <h1 class="poppins-bold">Ng Template Demo</h1>
+  <div
+    class="wrapper__user-type-label poppins-bold"
+    [ngSwitch]="sharedService.getLoggedInType() | async"
+  >
+    <span *ngSwitchCase="'admin'">Admin Account</span>
+    <span *ngSwitchCase="'supervisor'">Supervisor Account</span>
+    <span *ngSwitchCase="'employee'">Employee Account</span>
+  </div>
+  <div class="wrapper__user-type-actions poppins-regular">
+    <ng-container
+      *ngTemplateOutlet="
+        (sharedService.getLoggedInType() | async) === 'admin'
+          ? adminTemplate
+          : (sharedService.getLoggedInType() | async) === 'supervisor'
+          ? supervisorTemplate
+          : employeeTemplate
+      "
+    >
+    </ng-container>
+  </div>
+</div>
+
+<!-- Different User Roles -->
+<!-- The main benefit of having these here is that they are easier to manage and neater compared to ng-if and ng-switch -->
+<ng-template #adminTemplate>
+  <div class="wrapper__user-type-actions__admin">
+    <h4 class="wrapper__user-type-actions__admin__title">
+      As an admin, you can use the portal to:
+    </h4>
+    <ol>
+      <li
+        *ngFor="
+          let role of userTypeResponsibilities[
+            (sharedService.getLoggedInType() | async) || 'admin'
+          ]
+        "
+      >
+        {{ role }}
+      </li>
+    </ol>
+  </div>
+</ng-template>
+
+<ng-template #supervisorTemplate>
+  <div class="wrapper__user-type-actions__supervisor">
+    <h4 class="wrapper__user-type-actions__supervisor__title">
+      As a supervisor, you can use the portal to:
+    </h4>
+    <ol>
+      <li
+        *ngFor="
+          let role of userTypeResponsibilities[
+            (sharedService.getLoggedInType() | async) || 'supervisor'
+          ]
+        "
+      >
+        {{ role }}
+      </li>
+    </ol>
+  </div>
+</ng-template>
+
+<ng-template #employeeTemplate
+  ><div class="wrapper__user-type-actions__employee">
+    <h4 class="wrapper__user-type-actions__employee__title">
+      As an employee, you can use the portal to:
+    </h4>
+    <ol>
+      <li
+        *ngFor="
+          let role of userTypeResponsibilities[
+            (sharedService.getLoggedInType() | async) || 'employee'
+          ]
+        "
+      >
+        {{ role }}
+      </li>
+    </ol>
+  </div></ng-template
+>
