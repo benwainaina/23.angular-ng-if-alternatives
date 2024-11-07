@@ -66,14 +66,36 @@ export class DynamicComponentsDemoComponent implements OnInit, OnDestroy {
       .subscribe({
         next: (type) => {
           if (this._outlet) {
+            /**
+             * First, clear the outlet, so that if anything was rendered onto it before,
+             * it will not be there on the next render
+             */
             this._outlet.clear();
+
+            /**
+             * Then we pick the component to inject, and ensure that the type
+             * which we have selected actually has a component, and this way,
+             * we do not inject a null.
+             */
             const componentToInject = COMPONENT_MAPPING[type];
-            console.log('componentToInject', componentToInject);
             if (componentToInject) {
+              /**
+               * Then, we create the component and get a component reference returned to us.
+               */
               const componentRef =
                 this._outlet.createComponent(componentToInject);
+
+              /**
+               * Now, using the component reference, we can directly pass into it values,
+               * and in this case, we are passing in the appropriate roles based on the user type.
+               */
               componentRef.instance.roles =
                 this._userTypeResponsibilities[type];
+
+              /**
+               * Lastly, we call the ChangeDetectorRef in the component reference,
+               * so that we can trigger change detection.
+               */
               componentRef.changeDetectorRef.detectChanges();
             }
           }

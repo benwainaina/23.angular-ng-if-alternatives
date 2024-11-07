@@ -22,6 +22,7 @@
   </div>
 </div>
 
+<!-- UI Pieces Neatly Organized Here -->
 <ng-template #adminTemplate>
   <div class="wrapper__user-type-actions__admin">
     <h4 class="wrapper__user-type-actions__admin__title">
@@ -78,3 +79,6 @@
     </ol>
   </div></ng-template
 >
+
+<div *ngIf="accept">Okay, I am interested</div>
+<div *ngIf="decline">Well, I will leave for now</div>
