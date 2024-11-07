@@ -3,16 +3,15 @@ import { SharedService } from '../../../shared/src/public-api';
 import {
   AsyncPipe,
   NgFor,
-  NgIf,
   NgSwitch,
   NgSwitchCase,
-  NgTemplateOutlet,
+  NgSwitchDefault,
 } from '@angular/common';
 
 @Component({
   selector: 'lib-ng-switch-demo',
   standalone: true,
-  imports: [NgFor, NgSwitch, NgSwitchCase, AsyncPipe],
+  imports: [NgFor, NgSwitch, NgSwitchCase, NgSwitchDefault, AsyncPipe],
   templateUrl: 'ng-switch-demo.component.html',
   styleUrl: 'ng-switch-demo.component.scss',
 })

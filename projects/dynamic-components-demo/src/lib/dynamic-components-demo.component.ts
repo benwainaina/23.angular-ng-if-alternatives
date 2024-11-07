@@ -1,6 +1,5 @@
 import {
   Component,
-  ElementRef,
   inject,
   OnDestroy,
   OnInit,
@@ -29,6 +28,7 @@ const COMPONENT_MAPPING = {
 export class DynamicComponentsDemoComponent implements OnInit, OnDestroy {
   @ViewChild('outlet', { read: ViewContainerRef, static: true })
   private _outlet!: ViewContainerRef;
+
   private _onDestroy$: Subject<boolean> = new Subject<boolean>();
   private _sharedService: SharedService = inject(SharedService);
   private _userTypeResponsibilities = {
@@ -50,6 +50,7 @@ export class DynamicComponentsDemoComponent implements OnInit, OnDestroy {
   };
 
   ngOnInit(): void {
+    console.log('_outlet', this._outlet.element);
     this._listenForCurrentEmployee();
   }
 
@@ -67,6 +68,7 @@ export class DynamicComponentsDemoComponent implements OnInit, OnDestroy {
           if (this._outlet) {
             this._outlet.clear();
             const componentToInject = COMPONENT_MAPPING[type];
+            console.log('componentToInject', componentToInject);
             if (componentToInject) {
               const componentRef =
                 this._outlet.createComponent(componentToInject);
